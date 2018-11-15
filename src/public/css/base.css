@@ -1,0 +1,30 @@
+body {
+    min-width: 750px;
+}
+  
+#website_title {
+    font-family: "Carter One", sans-serif;
+    font-size: 30px;
+    width: 70%;
+    margin: auto;
+    padding: 0px;
+    text-align: center;
+}
+
+#website_title h1 {
+    margin: 5px;
+}
+
+#page_content {
+    margin: 30px auto 0px auto;
+    width: 70%;
+    min-width: 750px;
+    padding: 0px 5px;
+    min-height: 300px;
+    font-family: "Acme", sans-serif;
+    text-align: center;
+}
+
+#input_box {
+    border: 3px solid black;
+}
