@@ -1,0 +1,11 @@
+{
+  "name": "cultureiq-project",
+  "version": "1.0.0",
+  "description": "Sample translator web application for CultureIQ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Mason",
+  "license": "ISC"
+}
