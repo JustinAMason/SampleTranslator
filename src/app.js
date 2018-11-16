@@ -1,7 +1,10 @@
 const express = require('express');
+const mongoose = require('mongoose');
+require('./db');
 const path = require('path');
 const ISO6391 = require('iso-639-1');
 const {Translate} = require('@google-cloud/translate');
+const Translation = mongoose.model("Translation");
 
 if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
     // To obtain credentials, go to https://cloud.google.com/translate/docs/quickstart
@@ -40,8 +43,13 @@ app.post('/', (request, response) => {
 
     translate.detect(inputText).then(languages => {
         inputLanguage = ISO6391.getName(languages[0].language);
+
         translate.translate(inputText, "en").then(translations => {
             outputText = translations[0];
+            new Translation({
+                input: inputText,
+                translation: outputText
+            }).save();
             response.redirect("/translation");
         }).catch(err => {
             console.log(err);
