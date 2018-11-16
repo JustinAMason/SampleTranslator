@@ -9,6 +9,7 @@
   "author": "Justin Mason",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/translate": "^2.1.2",
     "express": "^4.16.4",
     "hbs": "^4.0.1"
   }
