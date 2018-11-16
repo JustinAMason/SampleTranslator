@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
-
+const ISO6391 = require('iso-639-1');
 const {Translate} = require('@google-cloud/translate');
+
 const projectId = 'translator-222623';
 const translate = new Translate({projectId: projectId});
 
@@ -35,7 +36,7 @@ app.post('/', (request, response) => {
     inputText = request.body.input_box;
 
     translate.detect(inputText).then(languages => {
-        inputLanguage = languages[0].language;
+        inputLanguage = ISO6391.getName(languages[0].language);
         translate.translate(inputText, "en").then(translations => {
             outputText = translations[0];
             response.redirect("/translation");
